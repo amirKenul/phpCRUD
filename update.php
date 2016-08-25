@@ -27,16 +27,26 @@ table{
  include "config.php";
 
   $id=$_GET['id'];
+
  $sql1="SELECT name,email,telnumb FROM table1 WHERE id='$id'";
 
  $query1=mysqli_query($conn,$sql1);
 
-  $row=mysqli_fetch_assoc($query1);
+ var_dump($query1);
+ if ($query1) {
+   # code...
+ }else{
+  echo "error";
+ }
 
-  var_dump($sql1);
+/* while( $row=mysqli_fetch_assoc($query1)){
+
+  foreach ($row as $key => $value) {
+     
+     echo $key ."->".$value."<br>";
+  }
+ }*/
   
-
-
 ?>
 
 </head>

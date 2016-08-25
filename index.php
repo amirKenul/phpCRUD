@@ -42,7 +42,7 @@ a{
 
 include "config.php";
 
-$sql="SELECT id,name,email,telnumb FROM table1";
+$sql="SELECT  id,name,email,telnumb FROM table1";
 
 $query=mysqli_query($conn,$sql);
 
@@ -60,7 +60,7 @@ $query=mysqli_query($conn,$sql);
   <thead>
     <tr>
     <th>ID</th>
-      <th>Names</th>
+      <th>Name</th>
       <th>Email Address</th>
       <th>Mobile Number</th>
        <th>Action</th>
@@ -81,9 +81,10 @@ while ($row=mysqli_fetch_assoc($query)){
 		<?php
 	}
 	?>
-	<td> <a href="delete.php?id=<?php echo $row['id']?>"class="read">Read</a>
+	<td> <a href="read.php?id=<?php echo $row['id']?>"class="read">Read</a>
 	     <a href="update.php?id=<?php echo $row['id']?>" class="update">Update</a>
 	     <a href="delete.php?id=<?php echo $row['id']?>" class="delete">Delete</a>
+	     
 	 </td>
 	</tr>
 	
