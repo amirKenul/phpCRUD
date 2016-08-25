@@ -61,7 +61,7 @@ table{
 <form action="" method="post">
 <input type="text" class="form-control" name="ad" placeholder="Ad"></br>
   <input type="text" class="form-control" name="email" placeholder="soyad"></br>
- <input type="number" class="form-control" name="numb" placeholder="yash"></br>
+ <input type="number" class="form-control" name="numb" placeholder="Numb"></br>
   
 <input class="btn btn-default create"  name="update" type="submit" value="Update" >
   <input class="btn btn-default create" name="back" type="submit" value="Back" > 
@@ -72,7 +72,7 @@ table{
 
  </div>
 <div class="row" style="margin-top:50px;">
-  <div class="col-md-12 text-center" style="background-color:#F0F0F0;padding-top:20px;">
+  
   
 </div>
 </div>
@@ -93,16 +93,21 @@ table{
 
 if( isset($_POST["update"]) ){
 
-    $id=$_GET["id"];
+ $id=$_GET["id"];
 
     $ad=$_POST["ad"];
     $email=$_POST["email"];
     $telnumb=$_POST["numb"];
+  if(!empty($ad)|| !empty($email) || !empty($telnumb)){
+   
     $sql="UPDATE table1 SET name='$ad',email='$email',telnumb='$telnumb' WHERE id='$id'";
      
      $query=mysqli_query($conn,$sql);
 
-header("Location:index.php"); 
+header("Location:index.php"); }
+ if(empty($ad) && empty($email) && empty($telnumb)){
+  echo "Informasiyani yenileshdirin";
+}
 }elseif (isset($_POST["back"])) {
   
   header("Location:index.php");
