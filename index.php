@@ -60,7 +60,7 @@ $query=mysqli_query($conn,$sql);
   <thead>
     <tr>
     <th>ID</th>
-      <th>Name</th>
+      <th>Names</th>
       <th>Email Address</th>
       <th>Mobile Number</th>
        <th>Action</th>
