@@ -33,16 +33,13 @@ table{
  $query2=mysqli_query($conn,$sql2);
 
 
-var_dump($query2);
 
-/* while( $row=mysqli_fetch_assoc($query1)){
 
-  foreach ($row as $key => $value) {
+ while( $row1=mysqli_fetch_assoc($query2)){
+
+  foreach ($row1 as $key => $value) {
      
-     echo $key ."->".$value."<br>";
-  }
- }*/
-  
+  }  
 ?>
 
 </head>
@@ -55,10 +52,11 @@ var_dump($query2);
 </div>
 <div class="col-md-6" style="margin-top:20px;">
 <form action="" method="post">
-<input type="text" class="form-control" name="ad" placeholder="Ad"></br>
-  <input type="text" class="form-control" name="email" placeholder="email"></br>
- <input type="number" class="form-control" name="numb" placeholder="numb"></br>
-  
+<input type="text" class="form-control" name="ad" placeholder="Ad" value="<?php echo $row1['name']; ?>"></br>
+  <input type="text" class="form-control" name="email" placeholder="email" value="<?php echo $row1['email']; ?>"></br>
+ <input type="number" class="form-control" name="numb" placeholder="numb" value="<?php echo $row1['telnumb']; ?>"></br>
+  <?php 
+  }?>
 <input class="btn btn-default create"  name="update" type="submit" value="Update" >
   <input class="btn btn-default create" name="back" type="submit" value="Back" > 
 
