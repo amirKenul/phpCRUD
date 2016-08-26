@@ -13,24 +13,26 @@
 
 	<?php
 
-/* include "config.php";
+ include "config.php";
+
+$id=$_GET['id'];
 
 
-
-
- $sql1="SELECT id,name,email,telnumb FROM table1 WHERE id=".$id;
+ $sql1="SELECT id,name,email,telnumb FROM table1 WHERE id=$id";
 
  $query1=mysqli_query($conn,$sql1);
 
- var_dump($query1);
- $row	=mysqli_fetch_assoc($query1);
-*/
- if(isset($_POST["read"])){
+
+ $row=mysqli_fetch_assoc($query1);
+
+echo $row['name'];
+
+/* if(isset($_POST["read"])){
  	include "config.php";
  	$sql1="SELECT name,email,telnumb FROM table1 WHERE id='$id'";
  	var_dump($query1);
     $row=mysqli_fetch_assoc($query1);
- }
+ }*/
 
 
 /* while( $row=mysqli_fetch_assoc($query1)){
@@ -49,9 +51,9 @@
 <div class="container">
 	<h1>READ A CUSTOMER</h1>
 	<div class="col-md-6 col-md-offset-3" style="margin-top: 50px;">
-	<p>Name  -</p>
-	<p>Email Address  -</p>
-	<p>Mobile Number  -</p>
+	<p>Name  -<?php echo $row['name']; ?></p>
+	<p>Email Address  - <?php echo $row['email']; ?></p>
+	<p>Mobile Number  - <?php echo $row['telnumb']; ?></p>
 
 <form action="" method="post">
 	<input class="btn btn-default create" name="back" type="submit" value="Back" >

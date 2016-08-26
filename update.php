@@ -28,16 +28,12 @@ table{
 
   $id=$_GET['id'];
 
- $sql1="SELECT name,email,telnumb FROM table1 WHERE id='$id'";
+ $sql2="SELECT name,email,telnumb FROM table1 WHERE id=$id";
 
- $query1=mysqli_query($conn,$sql1);
+ $query2=mysqli_query($conn,$sql2);
 
- var_dump($query1);
- if ($query1) {
-   # code...
- }else{
-  echo "error";
- }
+
+var_dump($query2);
 
 /* while( $row=mysqli_fetch_assoc($query1)){
 
@@ -60,8 +56,8 @@ table{
 <div class="col-md-6" style="margin-top:20px;">
 <form action="" method="post">
 <input type="text" class="form-control" name="ad" placeholder="Ad"></br>
-  <input type="text" class="form-control" name="email" placeholder="soyad"></br>
- <input type="number" class="form-control" name="numb" placeholder="Numb"></br>
+  <input type="text" class="form-control" name="email" placeholder="email"></br>
+ <input type="number" class="form-control" name="numb" placeholder="numb"></br>
   
 <input class="btn btn-default create"  name="update" type="submit" value="Update" >
   <input class="btn btn-default create" name="back" type="submit" value="Back" > 
@@ -72,7 +68,7 @@ table{
 
  </div>
 <div class="row" style="margin-top:50px;">
-  
+  <div class="col-md-12 text-center" style="background-color:#F0F0F0;padding-top:20px;">
   
 </div>
 </div>
@@ -98,7 +94,7 @@ if( isset($_POST["update"]) ){
     $ad=$_POST["ad"];
     $email=$_POST["email"];
     $telnumb=$_POST["numb"];
-  if(!empty($ad)|| !empty($email) || !empty($telnumb)){
+  if(!empty($ad) || !empty($email) || !empty($telnumb)){
    
     $sql="UPDATE table1 SET name='$ad',email='$email',telnumb='$telnumb' WHERE id='$id'";
      
@@ -106,7 +102,7 @@ if( isset($_POST["update"]) ){
 
 header("Location:index.php"); }
  if(empty($ad) && empty($email) && empty($telnumb)){
-  echo "Informasiyani yenileshdirin";
+ 
 }
 }elseif (isset($_POST["back"])) {
   
